@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les utilisateurs{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="my-3"> Voici la liste des utilisateurs !</h1>
+    <div class="row">
+        <table class="table table-hover">
+        <thead>
+            <tr class="table-primary">
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col"></th>
+            <th scope="col"><a href="{{ path('users_create') }}" class="btn btn-success btn-sm">Créer un utilisateur</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for user in users %}
+            <tr>
+            <td>{{user.Nom}}</td>
+            <td>{{user.Prenom}}</td>
+            <td>{{user.Email}}</td>
+                {% for role in user.rolesUser %}
+                    <td>{{role.titre}}</td>
+                {% endfor %}
+            <td>
+                <a href="{{ path('users_edit', {'id': user.id}) }}" class="btn btn-outline-info btn-sm">Modifier l'utilisateur</a>
+            </td>
+            <td>
+                <a href="{{ path('users_delete', {'id': user.id}) }}" class="btn btn-outline-danger btn-sm" onclick="return confirm(`Êtes vous sur de vouloir supprimer l'utilisateur : {{user.Nom}} ?`)">Supprimer l'utilisateur</a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

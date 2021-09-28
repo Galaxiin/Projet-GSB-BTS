@@ -1,0 +1,13 @@
+Groupe :
+
+	Raizer Antonin
+	Oumar Thierno
+	Fadiga Sella
+
+Acces professeur :
+
+	Admin : id = "rolland1@symfony.com"
+			password = "password"
+			
+	Practicien : id = "rolland2@symfony.com"
+			password = "password"

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les familles de nos médicaments !{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="my-3"> Voici la liste de toutes les familles !</h1>
+
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Code Famille</th>
+                    <th scope="col">Nom de la famille</th>
+                    <th scope="col">Insérée par</th>
+                    <th></th>
+                    <th><a href="{{path('familles_create')}}">
+                        <button type="button" class="btn btn-success btn-sm">Ajouter une famille</button>                    
+                    </a></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in familles %}
+                    <tr class="table-secondary">
+                        <th>{{element.FAMCode}}</th>
+                        <th>{{element.FAMLibelle}}</th>
+                        <th>{{element.FAMAuteur.TitreFullName}}</th>
+
+                        <th><a href="{{path('familles_edit',{'FAM_Libelle':element.FAMLibelle} )}}">
+                            <button href="" type="button" class="btn btn-outline-info btn-sm">Modifier la famille</button>
+                        </a></th>
+
+                        <th><a href="{{path('familles_delete',{'FAM_Code':element.FAMCode} )}}">
+                            <button href="" type="button" class="btn btn-outline-danger btn-sm" 
+                            onclick='return confirm (`Etes-vous sur de vouloir supprimer la famille {{element.FAMLibelle}} ?`)'>Supprimer la famille</button>
+                        </a></th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Laboratoire Swiss Bourdin
+{% endblock %}
+
+{% block header %}
+    <h2>Voici le header</h2>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="jumbotron mt-3">
+        <h1 class="display-4">Bienvenue sur le site du laboratoire Swiss Bourdin !</h1>
+        <p class="lead">Nous distribuons des médicaments directement conçu par nos praticiens !</p>
+        
+        {% if app.user %}
+            {# nada : rien n'est affiche si un utilisateur est connecte #}
+        {% else %} 
+            <hr class="my-5">
+            <p>Veuillez vous connecter pour pouvoir accéder à nos médicaments.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path('account_login') }}" role="button">Se connecter</a>
+            </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

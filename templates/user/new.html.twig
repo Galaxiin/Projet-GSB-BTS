@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Création d'un utilisateur{% endblock %}
+
+{% form_theme form 'user/_collection.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="my-3">Créer un nouveau utilisateur</h1>
+       
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Créer le nouveau utilisateur</button>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+ 
+{% block javascripts %}
+
+<script src="/js/user.js"></script>
+
+{% endblock %}

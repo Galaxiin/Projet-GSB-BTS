@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Création d'un dosage{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <h1>Créer un nouveau dosage</h1>
+       
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Créer le nouveau dosage</button>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+ 
+{% block javascripts %}
+    
+{% endblock %}

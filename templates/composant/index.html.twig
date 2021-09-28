@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les composants des medicaments !{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="my-3"> Voici la liste des composants !</h1>
+    <div class="row">
+        <table class="table table-hover">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Code</th>
+                <th scope="col">Libelle</th>
+                <th scope="col">Inseré par</th>
+                <th></th>
+                <th><a href="{{ path('composants_create') }}" class="btn btn-success btn-sm">Créer un composant</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for composant in composants %}
+            <tr class="table-secondary">
+                <th>{{composant.CMPCode}}</th>
+                <th>{{composant.CMPLibelle}}</th>
+                <th>{{composant.CMPAuteur.TitreFullName}}</th>
+                <th>
+                    <a href="{{ path('composants_edit', {'id': composant.id}) }}">
+                    <button class="btn btn-outline-info btn-sm">Modifier le composant</button>
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ path('composants_delete', {'id': composant.id}) }}">
+                    <button class="btn btn-outline-danger btn-sm" onclick="return confirm(`Êtes vous sur de vouloir supprimer le composant : {{composant.CMPLibelle}} ?`)">Supprimer le composant</button>
+                    </a>
+                </th>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

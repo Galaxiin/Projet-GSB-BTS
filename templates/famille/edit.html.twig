@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition d'une famille{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Modifier la famille <em>{{famille.FAMLibelle}}</em></h1>
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+        <a href="{{path('familles_index')}}">
+            <button type="button" class="btn btn-secondary">Annuler</button>
+        </a>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %} 
+
+{% endblock %}

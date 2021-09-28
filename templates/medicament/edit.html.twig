@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Création d'un médicament{% endblock %}
+
+
+{% block body %}
+    <div class="container alert-dark mt-3 mb-2">
+        <h1>Modification de médicament</h1>
+       
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Modifier medicament</button>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+ 
+{% block javascripts %}
+    
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition d'un composant{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="my-3">Modifier le composant : <em>{{composant.CMPLibelle}}</em></h1>
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
