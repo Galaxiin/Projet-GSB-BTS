@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
 
         $adminUser1->setNom('Raizer')
                     ->setPrenom('Antonin')
-                    ->setEmail('antonin.raizer@gmail.com')
+                    ->setEmail('antonin@symfony.com')
                     ->setPassword($password)
                     ->addUserRole($adminRole);
         $manager->persist($adminUser1);
